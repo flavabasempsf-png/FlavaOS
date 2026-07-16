@@ -2,7 +2,7 @@
 ==========================================
 FLAVA OS
 Guest List Module
-Version 0.3.0
+Version 0.3.1
 ==========================================
 */
 
@@ -14,9 +14,11 @@ const GuestListModule = {
 
         if (!container) return;
 
-        const guests = GuestDatabase.guests.filter(g =>
-            g.name.toLowerCase().includes(search.toLowerCase()) ||
-            g.group.toLowerCase().includes(search.toLowerCase())
+        const guests = GuestDatabase.guests.filter(guest =>
+
+            guest.name.toLowerCase().includes(search.toLowerCase()) ||
+            guest.group.toLowerCase().includes(search.toLowerCase())
+
         );
 
         let html = `
@@ -45,9 +47,17 @@ const GuestListModule = {
 
                     <p><strong>Group:</strong> ${guest.group}</p>
 
+                    <p><strong>Starter:</strong> ${guest.starter}</p>
+
                     <p><strong>Main:</strong> ${guest.main}</p>
 
                     <p><strong>Drink:</strong> ${guest.drink}</p>
+
+                    ${
+                        guest.checkedIn
+                            ? `<p><strong>Arrived:</strong> ${guest.arrivalTime}</p>`
+                            : ""
+                    }
 
                     <button
                         onclick="CheckInModule.checkIn(${guest.id})"
