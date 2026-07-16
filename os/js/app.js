@@ -2,13 +2,13 @@
 ==========================================
 FLAVA OS
 Application Engine
-Version 0.3.0
+Version 0.4.0
 ==========================================
 */
 
 const FlavaOS = {
 
-    version: "0.3.0",
+    version: "0.4.0",
 
     currentModule: "home",
 
@@ -47,23 +47,20 @@ const FlavaOS = {
                 break;
 
             case "kitchen":
-                container.innerHTML = `
-                    <h2>👨‍🍳 Kitchen</h2>
-                    <p>Kitchen module coming soon.</p>
-                `;
+                KitchenModule.render();
                 break;
 
             case "dashboard":
                 container.innerHTML = `
                     <h2>📊 Dashboard</h2>
-                    <p>Dashboard module coming soon.</p>
+                    <p>Coming soon...</p>
                 `;
                 break;
 
             case "settings":
                 container.innerHTML = `
                     <h2>⚙️ Settings</h2>
-                    <p>Settings module coming soon.</p>
+                    <p>Coming soon...</p>
                 `;
                 break;
 
