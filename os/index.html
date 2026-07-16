@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Flava OS</title>
 
@@ -21,188 +21,99 @@
 <header class="topbar">
 
     <div class="brand">
-
         <h1>FLAVA OS</h1>
-
         <p>Operations System</p>
-
     </div>
 
     <div class="version">
-
-        v1.0.0
-
+        v0.3.0
     </div>
 
 </header>
-
 
 <main>
 
 <section class="hero">
 
-<h2>Welcome</h2>
+    <h2>Welcome</h2>
 
-<p>
-
-Run your entire Flava Base event from one place.
-
-</p>
+    <p>
+        Run your entire Flava Base event from one place.
+    </p>
 
 </section>
-
 
 <section class="event-card">
 
-<h3>Current Event</h3>
+    <h3>Current Event</h3>
 
-<div class="detail">
+    <div class="detail">
+        <span>📅</span>
+        <span>Launch Party</span>
+    </div>
 
-<span>📅</span>
+    <div class="detail">
+        <span>📍</span>
+        <span>Molesworth Village Hall</span>
+    </div>
 
-<span>Launch Party</span>
-
-</div>
-
-<div class="detail">
-
-<span>📍</span>
-
-<span>Molesworth Village Hall</span>
-
-</div>
-
-<div class="detail">
-
-<span>👥</span>
-
-<span>35 Guests Expected</span>
-
-</div>
+    <div class="detail">
+        <span>👥</span>
+        <span>35 Guests Expected</span>
+    </div>
 
 </section>
-
 
 <section class="modules">
 
-<button class="module-button" data-module="event">
+    <button class="module-button" data-module="event">
+        <div class="icon">🎟️</div>
+        <div class="title">Event Control</div>
+        <div class="subtitle">Guest Check In</div>
+    </button>
 
-<div class="icon">🎟️</div>
+    <button class="module-button" data-module="kitchen">
+        <div class="icon">👨‍🍳</div>
+        <div class="title">Kitchen</div>
+        <div class="subtitle">Live Food Queue</div>
+    </button>
 
-<div class="title">
+    <button class="module-button" data-module="dashboard">
+        <div class="icon">📊</div>
+        <div class="title">Dashboard</div>
+        <div class="subtitle">Live Statistics</div>
+    </button>
 
-Event Control
-
-</div>
-
-<div class="subtitle">
-
-Guest check in
-
-</div>
-
-</button>
-
-
-<button class="module-button" data-module="kitchen">
-
-<div class="icon">👨‍🍳</div>
-
-<div class="title">
-
-Kitchen
-
-</div>
-
-<div class="subtitle">
-
-Live food queue
-
-</div>
-
-</button>
-
-
-<button class="module-button" data-module="dashboard">
-
-<div class="icon">📊</div>
-
-<div class="title">
-
-Dashboard
-
-</div>
-
-<div class="subtitle">
-
-Live statistics
-
-</div>
-
-</button>
-
-
-<button class="module-button" data-module="settings">
-
-<div class="icon">⚙️</div>
-
-<div class="title">
-
-Settings
-
-</div>
-
-<div class="subtitle">
-
-Application options
-
-</div>
-
-</button>
+    <button class="module-button" data-module="settings">
+        <div class="icon">⚙️</div>
+        <div class="title">Settings</div>
+        <div class="subtitle">Application Options</div>
+    </button>
 
 </section>
 
-
 <section id="module-container">
 
-<h3>Ready</h3>
+    <h3>Ready</h3>
 
-<p>
-
-Select a module above to begin.
-
-</p>
+    <p>
+        Select a module above to begin.
+    </p>
 
 </section>
 
 </main>
 
-
 <footer>
 
-<div>
+    <div>Flava OS</div>
 
-Flava OS
-
-</div>
-
-<div>
-
-Built for Flava Base
-
-</div>
+    <div>Built for Flava Base</div>
 
 </footer>
 
 </div>
-<script src="data/guests.js"></script>
 
-<script src="modules/event.js"></script>
-<script src="modules/guest-list.js"></script>
-<script src="modules/checkin.js"></script>
-<script src="modules/dashboard.js"></script>
-
-<script
 <script src="data/guests.js"></script>
 
 <script src="modules/event.js"></script>
@@ -212,3 +123,6 @@ Built for Flava Base
 
 <script src="js/router.js"></script>
 <script src="js/app.js"></script>
+
+</body>
+</html>
