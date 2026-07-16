@@ -2,31 +2,35 @@
 ==========================================
 FLAVA OS
 Guest List Module
-Version 0.2.0
+Version 0.3.0
 ==========================================
 */
 
 const GuestListModule = {
 
-    render() {
+    render(search = "") {
 
         const container = document.getElementById("module-container");
 
         if (!container) return;
 
-        const guests = GuestDatabase.guests;
+        const guests = GuestDatabase.guests.filter(g =>
+            g.name.toLowerCase().includes(search.toLowerCase()) ||
+            g.group.toLowerCase().includes(search.toLowerCase())
+        );
 
         let html = `
             <section class="guest-list">
 
                 <h2>👥 Guest List</h2>
 
-                <p>Total Guests: ${guests.length}</p>
+                <p>Total Guests: ${GuestDatabase.guests.length}</p>
 
                 <input
                     type="search"
                     id="guestSearch"
                     placeholder="Search guest..."
+                    value="${search}"
                 >
 
                 <div id="guestCards">
@@ -35,18 +39,21 @@ const GuestListModule = {
         guests.forEach(guest => {
 
             html += `
-                <div class="guest-card">
+                <div class="guest-card ${guest.checkedIn ? "checked" : ""}">
 
                     <h3>${guest.name}</h3>
 
-                    <p>${guest.group}</p>
+                    <p><strong>Group:</strong> ${guest.group}</p>
 
-                    <p>${guest.main}</p>
+                    <p><strong>Main:</strong> ${guest.main}</p>
+
+                    <p><strong>Drink:</strong> ${guest.drink}</p>
 
                     <button
-                        onclick="CheckInModule.checkIn(${guest.id})">
+                        onclick="CheckInModule.checkIn(${guest.id})"
+                        ${guest.checkedIn ? "disabled" : ""}>
 
-                        Check In
+                        ${guest.checkedIn ? "✅ Checked In" : "Check In"}
 
                     </button>
 
@@ -62,6 +69,14 @@ const GuestListModule = {
         `;
 
         container.innerHTML = html;
+
+        document
+            .getElementById("guestSearch")
+            .addEventListener("input", (e) => {
+
+                GuestListModule.render(e.target.value);
+
+            });
 
     }
 
