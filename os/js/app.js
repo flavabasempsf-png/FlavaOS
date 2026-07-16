@@ -2,19 +2,19 @@
 ==========================================
 FLAVA OS
 Application Engine
-Version 1.0.0
+Version 0.3.0
 ==========================================
 */
 
 const FlavaOS = {
 
-    version: "1.0.0",
+    version: "0.3.0",
 
     currentModule: "home",
 
     init() {
 
-        console.log("Flava OS v1.0.0");
+        console.log("Flava OS v" + this.version);
 
         this.bindNavigation();
 
@@ -38,22 +38,32 @@ const FlavaOS = {
 
         this.currentModule = module;
 
-        if (module === "event") {
+        switch(module) {
 
-            EventModule.init();
-            return;
+            case "event":
+                EventModule.render();
+                break;
+
+            case "dashboard":
+                document.getElementById("module-container").innerHTML =
+                    "<h2>📊 Dashboard</h2><p>Coming soon...</p>";
+                break;
+
+            case "kitchen":
+                document.getElementById("module-container").innerHTML =
+                    "<h2>👨‍🍳 Kitchen</h2><p>Coming soon...</p>";
+                break;
+
+            case "settings":
+                document.getElementById("module-container").innerHTML =
+                    "<h2>⚙️ Settings</h2><p>Coming soon...</p>";
+                break;
+
+            default:
+                document.getElementById("module-container").innerHTML =
+                    "<p>Module not found.</p>";
 
         }
-
-        const container = document.getElementById("module-container");
-
-        container.innerHTML = `
-
-            <h2>${module}</h2>
-
-            <p>This module is under development.</p>
-
-        `;
 
     }
 
