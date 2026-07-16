@@ -1,9 +1,8 @@
 /*
 ==========================================
 FLAVA OS
-Version 1.0.0
-
 Application Engine
+Version 1.0.0
 ==========================================
 */
 
@@ -11,35 +10,23 @@ const FlavaOS = {
 
     version: "1.0.0",
 
-    appName: "Flava OS",
-
     currentModule: "home",
 
     init() {
 
-        console.log(
-            `${this.appName} v${this.version} started`
-        );
+        console.log("Flava OS v1.0.0");
 
         this.bindNavigation();
-
-        this.showWelcome();
 
     },
 
     bindNavigation() {
 
-        const buttons =
-            document.querySelectorAll(".module-button");
-
-        buttons.forEach(button => {
+        document.querySelectorAll(".module-button").forEach(button => {
 
             button.addEventListener("click", () => {
 
-                const module =
-                    button.dataset.module;
-
-                this.loadModule(module);
+                this.loadModule(button.dataset.module);
 
             });
 
@@ -51,38 +38,29 @@ const FlavaOS = {
 
         this.currentModule = module;
 
-        const container =
-            document.getElementById("module-container");
+        if (module === "event") {
+
+            EventModule.init();
+            return;
+
+        }
+
+        const container = document.getElementById("module-container");
 
         container.innerHTML = `
-            <h3>${module}</h3>
-            <p>
-                Module coming in the next commit...
-            </p>
+
+            <h2>${module}</h2>
+
+            <p>This module is under development.</p>
+
         `;
-
-        console.log(
-            "Loaded module:",
-            module
-        );
-
-    },
-
-    showWelcome() {
-
-        console.log(
-            "Welcome to Flava OS"
-        );
 
     }
 
 };
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-        FlavaOS.init();
+    FlavaOS.init();
 
-    }
-);
+});
