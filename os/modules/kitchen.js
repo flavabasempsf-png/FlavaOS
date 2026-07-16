@@ -2,7 +2,7 @@
 ==========================================
 FLAVA OS
 Kitchen Module
-Version 0.1.0
+Version 0.2.0
 ==========================================
 */
 
@@ -13,15 +13,39 @@ const KitchenModule = {
     addGuest(guest) {
 
         this.orders.push({
-
             id: guest.id,
             name: guest.name,
             starter: guest.starter,
             main: guest.main,
             drink: guest.drink,
             status: "Waiting"
-
         });
+
+    },
+
+    updateStatus(id) {
+
+        const order = this.orders.find(o => o.id === id);
+
+        if (!order) return;
+
+        switch (order.status) {
+
+            case "Waiting":
+                order.status = "Cooking";
+                break;
+
+            case "Cooking":
+                order.status = "Ready";
+                break;
+
+            case "Ready":
+                order.status = "Served";
+                break;
+
+        }
+
+        this.render();
 
     },
 
@@ -35,6 +59,8 @@ const KitchenModule = {
             <section class="kitchen">
 
                 <h2>🍛 Kitchen Queue</h2>
+
+                <p>Total Orders: ${this.orders.length}</p>
         `;
 
         if (this.orders.length === 0) {
@@ -57,6 +83,12 @@ const KitchenModule = {
                         <p><strong>Drink:</strong> ${order.drink}</p>
 
                         <p><strong>Status:</strong> ${order.status}</p>
+
+                        <button onclick="KitchenModule.updateStatus(${order.id})">
+
+                            Next Stage
+
+                        </button>
 
                     </div>
                 `;
