@@ -2,7 +2,7 @@
 ==========================================
 FLAVA OS
 Check In Module
-Version 0.2.0
+Version 0.3.0
 ==========================================
 */
 
@@ -12,9 +12,13 @@ const CheckInModule = {
 
         const guest = GuestDatabase.guests.find(g => g.id === id);
 
-        if (!guest) return;
+        if (!guest || guest.checkedIn) return;
 
         guest.checkedIn = true;
+        guest.arrivalTime = new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit"
+        });
 
         GuestListModule.render();
 
@@ -25,9 +29,7 @@ const CheckInModule = {
     updateCounts() {
 
         const total = GuestDatabase.guests.length;
-
         const checked = GuestDatabase.guests.filter(g => g.checkedIn).length;
-
         const remaining = total - checked;
 
         console.log("Guests:", total);
