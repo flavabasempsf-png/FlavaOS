@@ -14,7 +14,7 @@ const FlavaOS = {
 
     init() {
 
-        console.log("Flava OS v" + this.version);
+        console.log(`Flava OS v${this.version}`);
 
         this.bindNavigation();
 
@@ -38,30 +38,39 @@ const FlavaOS = {
 
         this.currentModule = module;
 
-        switch(module) {
+        const container = document.getElementById("module-container");
+
+        switch (module) {
 
             case "event":
                 EventModule.render();
                 break;
 
-            case "dashboard":
-                document.getElementById("module-container").innerHTML =
-                    "<h2>📊 Dashboard</h2><p>Coming soon...</p>";
+            case "kitchen":
+                container.innerHTML = `
+                    <h2>👨‍🍳 Kitchen</h2>
+                    <p>Kitchen module coming soon.</p>
+                `;
                 break;
 
-            case "kitchen":
-                document.getElementById("module-container").innerHTML =
-                    "<h2>👨‍🍳 Kitchen</h2><p>Coming soon...</p>";
+            case "dashboard":
+                container.innerHTML = `
+                    <h2>📊 Dashboard</h2>
+                    <p>Dashboard module coming soon.</p>
+                `;
                 break;
 
             case "settings":
-                document.getElementById("module-container").innerHTML =
-                    "<h2>⚙️ Settings</h2><p>Coming soon...</p>";
+                container.innerHTML = `
+                    <h2>⚙️ Settings</h2>
+                    <p>Settings module coming soon.</p>
+                `;
                 break;
 
             default:
-                document.getElementById("module-container").innerHTML =
-                    "<p>Module not found.</p>";
+                container.innerHTML = `
+                    <p>Module not found.</p>
+                `;
 
         }
 
