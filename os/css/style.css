@@ -1068,3 +1068,30 @@ width:100%;
 }
 
 }
+@media(max-width:900px){
+
+    ...
+
+}
+
+/* GUEST CARD ACTIONS */
+
+.card-actions{
+   ...
+}
+
+.badge{
+   ...
+}
+
+.badge.checked{
+   ...
+}
+
+.badge.waiting{
+   ...
+}
+
+.arrival-time{
+   ...
+}
