@@ -5,10 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Flava OS</title>
+<title>Flava OS - Launch Edition</title>
 
 <meta name="theme-color" content="#184A1C">
-<meta name="description" content="Operations System for Flava Base">
+<meta name="description" content="Flava Base Operations System">
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -18,99 +18,147 @@
 
 <div id="app">
 
-<header class="topbar">
+<header>
 
-    <div class="brand">
-        <h1>FLAVA OS</h1>
-        <p>Operations System</p>
-    </div>
+<div class="logo">
 
-    <div class="version">
-        v0.3.0
-    </div>
+<h1>FLAVA OS</h1>
+
+<span>Powered by Flava Base</span>
+
+</div>
+
+<div class="status-pill">
+
+🟢 Launch Ready
+
+</div>
 
 </header>
 
-<main>
+<div class="container page">
 
-<section class="hero">
+<div class="section-title">
 
-    <h2>Welcome</h2>
+<div>
 
-    <p>
-        Run your entire Flava Base event from one place.
-    </p>
+<h2>Good Luck! 👋</h2>
 
-</section>
+<p>Flava Base Launch Party</p>
 
-<section class="event-card">
+</div>
 
-    <h3>Current Event</h3>
+<div>
 
-    <div class="detail">
-        <span>📅</span>
-        <span>Launch Party</span>
-    </div>
+<strong>Version 1.0</strong>
 
-    <div class="detail">
-        <span>📍</span>
-        <span>Molesworth Village Hall</span>
-    </div>
+</div>
 
-    <div class="detail">
-        <span>👥</span>
-        <span>35 Guests Expected</span>
-    </div>
+</div>
 
-</section>
+<div class="card">
 
-<section class="modules">
+<h3>📅 Today's Event</h3>
 
-    <button class="module-button" data-module="event">
-        <div class="icon">🎟️</div>
-        <div class="title">Event Control</div>
-        <div class="subtitle">Guest Check In</div>
-    </button>
+<br>
 
-    <button class="module-button" data-module="kitchen">
-        <div class="icon">👨‍🍳</div>
-        <div class="title">Kitchen</div>
-        <div class="subtitle">Live Food Queue</div>
-    </button>
+<p><strong>Venue:</strong> Molesworth Village Hall</p>
 
-    <button class="module-button" data-module="dashboard">
-        <div class="icon">📊</div>
-        <div class="title">Dashboard</div>
-        <div class="subtitle">Live Statistics</div>
-    </button>
+<p><strong>Guests:</strong> 35 Expected</p>
 
-    <button class="module-button" data-module="settings">
-        <div class="icon">⚙️</div>
-        <div class="title">Settings</div>
-        <div class="subtitle">Application Options</div>
-    </button>
+<p><strong>Status:</strong> Ready for Service</p>
 
-</section>
+</div>
 
-<section id="module-container">
+<div class="dashboard-grid">
 
-    <h3>Ready</h3>
+<div class="stat-card">
 
-    <p>
-        Select a module above to begin.
-    </p>
+<div class="icon">👥</div>
 
-</section>
+<div class="value">35</div>
 
-</main>
+<div class="title">Guests</div>
 
-<footer>
+</div>
 
-    <div>Flava OS</div>
+<div class="stat-card">
 
-    <div>Built for Flava Base</div>
+<div class="icon">✅</div>
 
-</footer>
+<div class="value">0</div>
+
+<div class="title">Checked In</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="icon">🍛</div>
+
+<div class="value">0</div>
+
+<div class="title">Kitchen Queue</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="icon">⭐</div>
+
+<div class="value">100%</div>
+
+<div class="title">Launch Ready</div>
+
+</div>
+
+</div>
+
+<div class="module-grid">
+
+<div class="module-card fade-in" data-module="event">
+
+<h2>🎟️ Event Control</h2>
+
+<p>Guest Check-in & Arrival</p>
+
+</div>
+
+<div class="module-card fade-in" data-module="kitchen">
+
+<h2>🍛 Kitchen</h2>
+
+<p>Live Kitchen Queue</p>
+
+</div>
+
+<div class="module-card fade-in" data-module="dashboard">
+
+<h2>📊 Dashboard</h2>
+
+<p>Live Event Statistics</p>
+
+</div>
+
+<div class="module-card fade-in" data-module="settings">
+
+<h2>⚙️ Settings</h2>
+
+<p>System Preferences</p>
+
+</div>
+
+</div>
+
+<br>
+
+<div id="module-container" class="card fade-in">
+
+<h2>Welcome to Flava OS</h2>
+
+<p>Select a module above to begin service.</p>
+
+</div>
 
 </div>
 
@@ -119,6 +167,7 @@
 <script src="modules/event.js"></script>
 <script src="modules/guest-list.js"></script>
 <script src="modules/checkin.js"></script>
+<script src="modules/kitchen.js"></script>
 <script src="modules/dashboard.js"></script>
 
 <script src="js/router.js"></script>
