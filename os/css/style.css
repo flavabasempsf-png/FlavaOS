@@ -1037,61 +1037,38 @@ transform:translateY(0);
 
 /* ========================================= */
 
-@media(max-width:900px){
-
-.kitchen-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.dashboard-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.kitchen-footer{
-
-flex-direction:column;
-
-align-items:stretch;
-
-gap:12px;
-
-}
-
-.kitchen-footer .btn{
-
-width:100%;
-
-}
-
-}
-@media(max-width:900px){
-
-    ...
-
-}
-
+/* ========================================= */
 /* GUEST CARD ACTIONS */
+/* ========================================= */
 
 .card-actions{
-   ...
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:16px;
+    min-width:170px;
 }
 
 .badge{
-   ...
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
 }
 
 .badge.checked{
-   ...
+    background:#E9F9EF;
+    color:#15803D;
 }
 
 .badge.waiting{
-   ...
+    background:#FFF8E6;
+    color:#B7791F;
 }
 
 .arrival-time{
-   ...
+    margin-top:12px;
+    font-size:14px;
+    color:var(--muted);
 }
