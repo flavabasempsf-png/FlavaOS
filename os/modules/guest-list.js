@@ -37,57 +37,78 @@ const GuestListModule = {
 
                 <div id="guestCards">
         `;
+guests.forEach(guest => {
 
-        guests.forEach(guest => {
+    html += `
 
-            html += `
-                <div class="guest-card ${guest.checkedIn ? "checked" : ""}">
+    <div class="guest-card card fade-in ${guest.checkedIn ? "checked" : ""}">
 
-                    <h3>${guest.name}</h3>
+        <div class="guest-info">
 
-                    <p><strong>Group:</strong> ${guest.group}</p>
+            <div class="guest-name">
+                👤 ${guest.name}
+            </div>
 
-                    <p><strong>Starter:</strong> ${guest.starter}</p>
+            <div class="group-name">
+                ${guest.group}
+            </div>
 
-                    <p><strong>Main:</strong> ${guest.main}</p>
+            <div class="ticket-number">
+                🎫 ${guest.ticketNumber || "No Ticket"}
+            </div>
 
-                    <p><strong>Drink:</strong> ${guest.drink}</p>
+            <div class="order-grid">
 
-                    ${
-                        guest.checkedIn
-                            ? `<p><strong>Arrived:</strong> ${guest.arrivalTime}</p>`
-                            : ""
-                    }
-
-                    <button
-                        onclick="CheckInModule.checkIn(${guest.id})"
-                        ${guest.checkedIn ? "disabled" : ""}>
-
-                        ${guest.checkedIn ? "✅ Checked In" : "Check In"}
-
-                    </button>
-
-                </div>
-            `;
-
-        });
-
-        html += `
+                <div class="order-item">
+                    <span>Starter</span>
+                    <strong>${guest.starter}</strong>
                 </div>
 
-            </section>
-        `;
+                <div class="order-item">
+                    <span>Main</span>
+                    <strong>${guest.main}</strong>
+                </div>
 
-        container.innerHTML = html;
+                <div class="order-item">
+                    <span>Drink</span>
+                    <strong>${guest.drink}</strong>
+                </div>
 
-        document
-            .getElementById("guestSearch")
-            .addEventListener("input", (e) => {
+            </div>
 
-                GuestListModule.render(e.target.value);
+            ${
+                guest.checkedIn
+                ? `<div class="arrival-time">🕒 Arrived ${guest.arrivalTime}</div>`
+                : ""
+            }
 
-            });
+        </div>
 
-    }
+        <div class="card-actions">
 
-};
+            ${
+                guest.checkedIn
+
+                ? `<div class="badge checked">✅ Checked In</div>`
+
+                : `<div class="badge waiting">Waiting</div>`
+
+            }
+
+            <button
+                class="btn btn-primary"
+                onclick="CheckInModule.checkIn(${guest.id})"
+                ${guest.checkedIn ? "disabled" : ""}>
+
+                ${guest.checkedIn ? "Checked In" : "Check In"}
+
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+});
+        
