@@ -2,13 +2,13 @@
 ==========================================
 FLAVA OS
 Application Engine
-Version 0.4.0
+Version 1.0.0
 ==========================================
 */
 
 const FlavaOS = {
 
-    version: "0.4.0",
+    version: "1.0.0",
 
     currentModule: "home",
 
@@ -22,11 +22,13 @@ const FlavaOS = {
 
     bindNavigation() {
 
-        document.querySelectorAll(".module-button").forEach(button => {
+        document.querySelectorAll(".module-card").forEach(card => {
 
-            button.addEventListener("click", () => {
+            card.addEventListener("click", () => {
 
-                this.loadModule(button.dataset.module);
+                const module = card.dataset.module;
+
+                this.loadModule(module);
 
             });
 
@@ -38,35 +40,66 @@ const FlavaOS = {
 
         this.currentModule = module;
 
-        const container = document.getElementById("module-container");
-
         switch (module) {
 
             case "event":
-                EventModule.render();
+
+                if (typeof EventModule !== "undefined") {
+                    EventModule.render();
+                }
+
                 break;
 
             case "kitchen":
-                KitchenModule.render();
+
+                if (typeof KitchenModule !== "undefined") {
+                    KitchenModule.render();
+                }
+
                 break;
 
             case "dashboard":
-                container.innerHTML = `
-                    <h2>📊 Dashboard</h2>
-                    <p>Coming soon...</p>
-                `;
+
+                if (typeof DashboardModule !== "undefined") {
+                    DashboardModule.render();
+                }
+
+                break;
+
+            case "guest-list":
+
+                if (typeof GuestListModule !== "undefined") {
+                    GuestListModule.render();
+                }
+
+                break;
+
+            case "checkin":
+
+                if (typeof CheckInModule !== "undefined") {
+                    CheckInModule.render();
+                }
+
                 break;
 
             case "settings":
-                container.innerHTML = `
-                    <h2>⚙️ Settings</h2>
-                    <p>Coming soon...</p>
+
+                document.getElementById("module-container").innerHTML = `
+                    <div class="card">
+                        <h2>⚙️ Settings</h2>
+                        <p>Settings module coming soon.</p>
+                    </div>
                 `;
+
                 break;
 
             default:
-                container.innerHTML = `
-                    <p>Module not found.</p>
+
+                document.getElementById("module-container").innerHTML = `
+                    <div class="card">
+                        <h2>Module Not Found</h2>
+                        <p>Please check your configuration.</p>
+                    </div>
                 `;
 
         }
